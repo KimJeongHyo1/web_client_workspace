@@ -1,0 +1,40 @@
+.parent {
+    background-color: blanchedalmond;
+    text-align: right;
+    /* text-align: center; */
+    /* text-align: left; */
+}
+.parent span {
+    background-color: yellowgreen;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000000; /* #rrggbb  #rgb #000 */
+    
+    /* 위아래(margin) 좌우(auto) */
+    /* margin: 0 auto;  */
+    /* right */
+    /* margin-left: auto; */
+    /* left */
+    margin-right: auto;
+    
+}
+
+.item {
+    width: 200px;
+    height: 200px;
+    background-color: royalblue;
+    border: 2px solid yellowgreen;
+    margin: 0 auto;
+    /* text-align: center; */
+    
+
+    /* 가운데(상하좌우) 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}

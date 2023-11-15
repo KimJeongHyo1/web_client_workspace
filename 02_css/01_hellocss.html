@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS | HelloCSS</title>
+    <link rel="stylesheet" href="css/01_hellocss.css">
+    <style>
+        /* style태그내 주석 */
+        /* css를 처리하기 위한 Best Position */
+        #foo{
+            color: cornflowerblue;
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>HelloCSS</h1>
+    <!-- Cascading이라고 쓰는 이유가 부모-자식구조라서 -->
+    <h2><abbr>CSS</abbr> Cascading Style Sheet</h2>
+
+    <h3>html페이지에 css를 적용하는 3가지 방법</h3>
+    <!-- 외부링크 -> 페이지내태그로 사용하는게 좋음 -->
+    <!-- ol>li*3 -->
+    <ol>
+        <li style="color: blueviolet;">inline style속성</li>
+        <li id="foo">페이지내 style태그</li>
+        <li id="bar">외부css파일 링크</li>
+    </ol>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+
+#sample {
+    /* block요소 하위 텍스트 정렬 */
+    text-align: center;
+    text-decoration: underline 2px violet wavy; /* line-through |overline */
+    text-shadow: 3px 3px 7px gray;/* x-offset, y-offset, spread */
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.bg{
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    text-align: center;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* .bg p {
+    margin: 0;
+} */
+.shadow {
+    margin: 0;
+}
+#shadow1 {
+    color: orangered;
+    text-shadow: 3px 3px 7px yellow;
+}
+#shadow2 {
+    color: white;
+    text-shadow: 5px 5px 8px white;
+}
+#shadow3 {
+    color: white;
+    text-shadow: 5px 5px 8px springgreen;
+}
+#shadow4 {
+    color: black;
+    text-shadow: 5px 5px 8px yellow, 5px 5px 8px orangered, 5px 5px 8px red, 5px 5px 8px white;
+}

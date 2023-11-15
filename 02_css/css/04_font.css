@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Sunflower:wght@500&display=swap');
+/* 폰트 종류 구분 */
+/* serif 글자끝에 삐침 있음(궁서체같이) */
+/* sans-serif 글자끝에 삐침 없음(고딕체같이) */
+/* cursive 필기체(손으로 쓴거같이) */
+/* monospace 글자간격 모두 동일 */
+
+#font1{
+    /* 폰트나열, 왼쪽부터 존재하는지 검사 후 적용, 마지막generic-family 작성 */
+    /* 폰트체에 공백있으면 ''로 감싸줌 */
+    font-family : 'Courier New', Courier, monospace;
+    font-size: 50px;
+}
+#font2 {
+    /* font-family: 'Sunflower', sans-serif; */
+    /* font-size: 50px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 50px; */
+
+    /* 모아쓰기 shorthand */
+    /* font: font-style font-variant font-weight font-size/line-height font-family */
+    font: italic bold 48px/48px 'Sunflower', sans-serif;
+}
+#font3 {
+    font-family: 'Gamja Flower', sans-serif;
+    font-size: 70px;
+    
+}
+
+#parent{
+    font-size: 32px;
+}
+html {
+    font-size: 50px;
+}
+#parent :first-child { /* 절대크기 */
+    font-size: 24px;
+}
+#parent :nth-child(2) { /* 부모요소 상대크기 */
+    font-size: 150%;
+}
+#parent :nth-child(3) { /* 부모요소 상대크기 */
+    font-size: 1.5em;
+}
+#parent :last-child { /* 루트요소 상대크기 */
+    font-size: 1.5rem;
+}
