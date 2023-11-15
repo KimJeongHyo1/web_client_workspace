@@ -66,53 +66,56 @@
 
 
 <h1>HTML실습문제</h1>
-<form>
-    <fieldset>
-        <legend>납품자 정보</legend>
-            <label for="name">1. 납품자명(필수) : </label>
-            <input type="text" name="name" id="name">
-            <br>
-            <br>
-            <label for="email">2. email(필수) : </label>
-            <input type="text" name="email" id="email" placeholder="answer@naver.com">
-            <br>
-            <br>
-            <label for="homepage">3. 홈페이지 : </label>
-            <input type="text" name="homepage" id="homepage" value="http://">
-            <br>
-            <br>
-            <label for="area">4. 지역 : </label>
-            <input type="text" name="area" id="area" list="area1">
-            <datalist id="area1">
-                <option value="부산"/>
-                <option value="서울"/>
-                <option value="광주"/>
-            </datalist>
-            <br>
-            <br>   
-
-    </fieldset>
-
-    <fieldset>
-        <legend>납품 정보</legend>
-            <label for="name"> • 상품명(필수) : </label>
-            <input type="text" name="name" id="name">
-            <br>
-            <br>
-            <label for="email"> • 납품수량(필수) : </label>
-            <input type="text" name="email" id="email" placeholder="최소 100">
-            <br>
-            <br>
-            <label for="homepage"> • 납품등급(필수) : </label>
-            <input type="range" name="score" id="score" min="100" max="10000">
-            <br>
-            <br>
-            <label for="other"> • 기타사항 : </label>
-            <input type="text" name="other" id="other">
-            <br>
-            <br>
-    </fieldset>
-    <input type="submit" value="send message">
+<fieldset>
+    <legend>납품자 정보</legend>
+    <ol>
+        <li>
+            <label for="name">납품자명(필수) : </label>
+            <input type="text" name="name" id="name" required></li><br>
+        <li>
+            <label for="email">email(필수) : </label>
+            <input type="email" placeholder="answer@naver.com" name="email" id="email" required></li><br>
+        <li>
+            <label for="homepage">홈페이지 : </label>
+            <input type="url" value="http://" name="homepage" id="homepage"></li><br>
+        <li>
+            <label for="region">지역 : </label> 
+            <select name="region" id="region">
+                <optgroup label="한국">
+                    <option value="seoul">서울</option>
+                    <option value="busan" selected>부산</option>
+                </optgroup>
+                <optgroup label="중국">
+                    <option value="beijing">북경</option>
+                    <option value="sanghai">상해</option>
+                </optgroup>
+            </select>
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <legend>납품 정보</legend>
+        <ul>
+            <li>
+                <label for="pName">상품명(필수) :</label>
+                <input type="text" name="pName" id="pName" required>
+            </li>
+            <li>
+                <label for="amount">납품수량(필수) : </label>
+                <input type="number" name="amount" id="amount" min=100 placeholder="최소 100" required>
+            </li>
+            <li>
+                <label for="pGrade">납품등급(필수) : </label>
+                <input type="range" name="pGrade" id="pGrade" required>
+            </li>
+            <li>
+                <label for="etc">기타사항 : </label>
+                <textarea name="etc" id="etc" rows=2></textarea>
+            </li>
+        </ul>
+</fieldset>
+<br>
+<input type="submit" value="send message">
 </form>
 
 

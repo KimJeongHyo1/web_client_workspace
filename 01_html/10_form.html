@@ -9,11 +9,11 @@
     <h1>Form</h1>
     <!-- 사용자입력값을 서버로 전송하기 위한 form과 input태그등을 제공 -->
     <!-- 
-        name 폼의 이름(필수)
+        name 폼의 이름(필수, 서버로 전송되지 않음, 페이지내 구분용)
         action 제출할 서버주소(url) => 상대주소, 절대주소 가능
         method (http메세지를 작성하는 방법이 다름)
-            - get (기본값) : 사용자입력값을 url에 query-string 형식으로 전달
-            - post : 사용자입력값을 http메세지 body에 작성(url 확인 불가)
+            - get (기본값) : 사용자입력값을 url에 query-string 형식(직렬화)으로 전달
+            - post : 사용자입력값을 http메세지 body(직렬화)에 작성(url 확인 불가)
           http://192.168.20.55:5500/01_html/10_form.html?username=honggd&password=1234 -> ?부터 query-string
         ★★★ query-string 작성시 key=value형식에 사용되는 key값은 name속성값이다.★★★
         ★★ form하위 input태그는 name속성을 반드시 가지고 있어야 한다.★★
@@ -41,6 +41,7 @@
               name="memberName" 
               value="홍길동"
               placeholder="이름을 입력하세요"
+              readonly 
               required>
             <br>
 
@@ -72,6 +73,9 @@
             <label for="memberTel">전화번호</label>
             <input type="tel" name="memberTel" id="memberTel">
             <br>
+            <!-- 개행, tab, 공백값도 같이 날라감 -->
+            <laber for="memo">메모</laber>
+            <textarea name="memo" id="memo" cols="10" rows="5">a</textarea>
 
         </fieldset>
     <input type="submit" value="제출">
@@ -109,6 +113,7 @@
         <!-- sometime=20%3A19 -> :이 %3A로 나옴 -->
     <br>
     
+    <!-- iso860 -->
     <label>날짜/시각</label>
     <input 
       type="datetime-local" name="when" id="when"
@@ -120,7 +125,7 @@
     <form action="">
         <fieldset>
             <legend>선택관련 input</legend>
-            <!-- 단일선택 input:radio -->
+            <!-- 단일선택 input:radio /name값이 같아야 작동됨-->
             <!-- radio의 단점 : 한번 선택 후 해제가 안됨 -->
             <!-- gender=M -> name값으로 value가 날라감 -->
             <!-- checked 써놓으면 그 값에 체크되어있음 -->
