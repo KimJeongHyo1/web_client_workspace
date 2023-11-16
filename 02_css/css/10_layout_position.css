@@ -38,7 +38,8 @@
     position: sticky;
     top: 0px;
     background-color: aquamarine;
-    z-index: 999;} /* top이 0이 되면, 값이 클수록 앞(사용자)에 위치*/
+    z-index: 999; /* top이 0이 되면, 값이 클수록 앞(사용자)에 위치*/
+}
 
 .wrap {
     height: 80px;

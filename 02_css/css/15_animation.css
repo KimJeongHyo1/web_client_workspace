@@ -10,7 +10,7 @@ body:hover .box {
     animation-name: my-ani;
     animation-duration: 2s;
     /* animation-direction: reverse; */ /* 반대로 */
-    animation-direction: alternate;
+    animation-direction: normal;
     animation-iteration-count: infinite; /* 무한반복*/
     /* normal | reverse | alternate */
     animation-delay: 1s;
