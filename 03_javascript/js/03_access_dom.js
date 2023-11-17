@@ -113,7 +113,7 @@ function test2() {
 }
 
 /**
- * document.querySelector(selector: string): JTMLElement | null
+ * document.querySelector(selector: string): HTMLElement | null
  *   - css선택자를 이용해서 하나의 DOM요소를 반환
  *   - 여러개의 요소를 반환하는 선택자를 사용한 경우 첫번째 요소만 반환
  */
