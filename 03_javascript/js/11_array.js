@@ -29,7 +29,7 @@ function test1() {
 /**
  * 반복문
  * - for
- * - for in문 : 각 속성명(배열에 있으면 index)을 매턴에 반환
+ * - for in문 : 각 속성명(배열에 있으면 index)을 매턴에 반환, 객체순회에 적합
  * - for of문 : 각 속성값을 매턴에 반환
  */
 function test2() {
@@ -53,6 +53,7 @@ function test3() {
     const arr = [1, 2, 3];
     const arr2 = ['가', '나', '다'];
     const arr3 = [...arr, ...arr2];
+    // const arr3 = [1, 2, 3, '가', '나', '다'];
     console.log(arr3);
 }
 
@@ -98,7 +99,7 @@ function test5() {
     console.log(arr.lastIndexOf('사과')); // 4
 
 
-    // find : 조건에 만족하는 최초의 요소를 반환
+    // find : 조건에 만족하는 최초의 요소를 반환(함수를 전달 / boolean값)
     console.log(arr.find(function(fruit){
         // return fruit === '귤'; // 귤
         // return fruit.length === 4; // 글자가 4개짜리
@@ -114,7 +115,7 @@ function test5() {
     }));
 
 
-    // concat 두배열 연결 (immutable / 원본안바뀜)
+    // concat 두배열 연결 (immutable / 원본안바뀜) -> 2개만연결가능해서 전개연산자가 더 좋음
     const vegitables = ['고구마', '감자', '오이'];
     const vegifruits = arr.concat(vegitables);
     console.log(arr);
@@ -182,8 +183,8 @@ function test6() {
     console.log(langs.slice(2, 4));
     console.log(langs.slice(2, 4));
     console.log(langs.slice(3));
-    console.log(langs.slice()); // 전체 복제(처음부터 끝까지)
-
+    console.log(langs.slice()); // 전체 복제(처음부터 끝까지) -> 한번에 추가나 삭제가능, 반환값은 string
+    // Array<string>.slice(start?: number | undefined, end?: number | undefined): string[]
     
     // splice(strat, delCnt, newItem1, newItem2, ...) -> 중간에 끼워넣기
     // start부터 delCnt개를 삭제하고, 새요소를 추가. 삭제된요소가 배열로 반환
@@ -193,8 +194,100 @@ function test6() {
     console.log(alpha.splice(1, 0, 'k', 'l', 'm')); // ['a', 'k', 'l', 'm', 'x', 'y', 'c', 'd', 'e']
 
     console.log(alpha);
-    
 
     // toString
     console.log(alpha.toString);
+}
+
+/**
+ * forEach(callbackFunction)
+ * - callbackFunction 함수를 함수에 전달하면, 내부적으로 호출해 사용
+ * - 단순반복처리
+ * - 요소별로 callbackFunction 호출
+ */
+function test7() {
+    const arr = ['a', 'b', 'c', 'd', 'e'];
+    arr.forEach(function(ch, index, _arr) { // ⭐요소, 인덱스, 원래배열
+        console.log(ch, index, _arr)
+    });
+
+    const brr = [1, 2, '가', 3, '홍길동', 'ABC', 500, 'ㅋㅋㅋ'];
+    const nums = [];
+    const strs = [];
+    // 필요없으면 매개변수 생략가능
+    brr.forEach(function(elem, index) {
+        (typeof elem === 'number') && nums.push(elem);
+        (typeof elem === 'string') && strs.push(elem);
+    });
+    console.log(nums);
+    console.log(strs);
+}
+
+/**
+ * filter(cdFunc)
+ * - boolean반환하는 콜백함수를 전달
+ * - true를 반환한 요소만 새배열에 담아 반환
+ * - immutable
+ */
+function test8() {
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    const evens = arr.filter(function(n, i, _arr) {
+        console.log(n, i, _arr);
+        return n % 2 == 0; // 짝수고르기
+    });
+    console.log(evens); // (5) [2, 4, 6, 8, 10]
+}   
+
+/**
+ * map(callbackFunc)
+ * - 요소별 연산결과를 새배열에 담아 반환
+ * - immutable
+ */
+function test9() {
+    const arr = [1, 2, 3];
+    const arr2 = arr.map(function(n) {
+        return n * n;
+    }); 
+    console.log(arr2); // 제곱구하기
+
+    // 페이지내의 버튼속 글자를 배열에 담기
+    // 1. button배열생성 (진짜배열로 변환)
+    // 2. map함수를 이용해서 button태그안의 innerHTML속성값을 배열에 담아 반환
+    const buttons = [...document.querySelectorAll("button")]; // [...]으로 진짜배열로 만들어줌
+    console.log(buttons);
+    const contents = buttons.map(function(button) {
+        // console.log(button);
+        return button.innerText;
+    });
+    console.log(contents);
+}
+
+/**
+ * reduce (callbackFunction[, initValue]) -> 초기값을 인자로 받음
+ * - 모든 요소를 순회해서 하나의 값이나 배열을 반환
+ * - 초기값을 지정하지 않으면, 첫번째 요소가 초기값으로 사용됨
+ */
+function test10() {
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const sum = arr.reduce(function(agg, n, i, _arr) {
+        console.log(agg, n, i, _arr);
+        return agg + n;
+    });
+    console.log(sum);
+
+    // 홀수배열 생성
+    const odds = arr.reduce(function(agg, n) {
+        n % 2 == 0 || agg.push(n);
+        return agg;
+    }, []);
+    console.log(odds);
+
+    // 페이지내의 버튼속 글자를 배열에 담기 - reduce
+    const texts = Array.from(document.querySelectorAll("button"))
+                .reduce(function(arr, button){
+                arr.push(button.textContent);
+                return arr;
+        }, []);
+    console.log(texts);
 }
