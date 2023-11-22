@@ -50,7 +50,7 @@ const test1 = () => {
     // 존재하지않는 속성을 호출
     console.log(obj.father); // undefined
 
-    // 존재하지않는 속성을 참조
+    // 존재하지않는 속성을 참조 -> 오류남
     // console.log(obj.father.job()); // Uncaught TypeError: Cannot read properties of undefined (reading 'job')
     
     // 속성 추가
@@ -61,7 +61,7 @@ const test1 = () => {
     // 속성값 제거
     obj.hobby = undefined;
     
-    // 속성 제거
+    // 속성을 제거
     delete obj.hobby;
 };
 
@@ -77,7 +77,7 @@ const test2 = () => {
         // run : () =>{ // ${this.username}이/가달린다~ 달린다!
         run : function(){
             // this용법2. 객체메소드(일반함수)안 this는 현재객체를 가리킨다.
-            console.log('${this.username}이/가달린다~ 달린다!');
+            console.log(`${this.username}이/가달린다~ 달린다!`);
         },
         // 메소드 단축문법(일반함수) -> 추천
         eat(food){
@@ -122,7 +122,7 @@ const test3 = () => {
 };
 
 /**
- * 반복처리(모든조건거쳐 순회)
+ * 반복처리(모든 조건을 거쳐 순회)
  * - for..in문
  * - Object.keys()
  * - Object.values()
@@ -140,12 +140,12 @@ const test4 = () => {
         console.log(prop, obj[prop]); // []쓸것
     }
 
-    // Object.keys()
+    // Object.keys() / key값만 모아서 배열로
     const keys = Object.keys(obj);
     console.log(keys);
     keys.forEach((key) => console.log(key, obj[key]));
 
-    // Object.values()
+    // Object.values() / value값만 모아서 배열로
     const values = Object.values(obj);
     values.forEach(value => console.log(value)); // 이때는 value만쓰기
 };

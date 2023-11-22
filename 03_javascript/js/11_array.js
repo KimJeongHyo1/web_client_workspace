@@ -207,7 +207,7 @@ function test6() {
  */
 function test7() {
     const arr = ['a', 'b', 'c', 'd', 'e'];
-    arr.forEach(function(ch, index, _arr) { // ⭐요소, 인덱스, 원래배열
+    arr.forEach(function(ch, index, _arr) { // ⭐요소, 인덱스, 원본배열
         console.log(ch, index, _arr)
     });
 
@@ -216,8 +216,8 @@ function test7() {
     const strs = [];
     // 필요없으면 매개변수 생략가능
     brr.forEach(function(elem, index) {
-        (typeof elem === 'number') && nums.push(elem);
-        (typeof elem === 'string') && strs.push(elem);
+        (typeof elem === 'number') && nums.push(elem); // 타입이 숫자면 nums에 넣고
+        (typeof elem === 'string') && strs.push(elem); // 타입이 문자면 strs에 넣어주라
     });
     console.log(nums);
     console.log(strs);
@@ -240,7 +240,7 @@ function test8() {
 }   
 
 /**
- * map(callbackFunc)
+ * map(callbackFunc) / 자바의 key=value랑은 조금 다름
  * - 요소별 연산결과를 새배열에 담아 반환
  * - immutable
  */
@@ -273,14 +273,14 @@ function test10() {
     const sum = arr.reduce(function(agg, n, i, _arr) {
         console.log(agg, n, i, _arr);
         return agg + n;
-    });
+    }); // }, 0); -> 0이 초기값이면 안써도됨
     console.log(sum);
 
     // 홀수배열 생성
     const odds = arr.reduce(function(agg, n) {
         n % 2 == 0 || agg.push(n);
         return agg;
-    }, []);
+    }, []); // [] -> 배열이 초기값
     console.log(odds);
 
     // 페이지내의 버튼속 글자를 배열에 담기 - reduce
