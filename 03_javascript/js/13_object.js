@@ -61,7 +61,7 @@ const test1 = () => {
     // 속성값 제거
     obj.hobby = undefined;
     
-    // 속성 제거
+    // 속성을 제거
     delete obj.hobby;
 };
 
@@ -140,12 +140,12 @@ const test4 = () => {
         console.log(prop, obj[prop]); // []쓸것
     }
 
-    // Object.keys()
+    // Object.keys() / key값만 모아서 배열로
     const keys = Object.keys(obj);
     console.log(keys);
     keys.forEach((key) => console.log(key, obj[key]));
 
-    // Object.values()
+    // Object.values() / value값만 모아서 배열로
     const values = Object.values(obj);
     values.forEach(value => console.log(value)); // 이때는 value만쓰기
 };
