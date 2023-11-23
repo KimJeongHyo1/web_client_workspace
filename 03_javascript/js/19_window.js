@@ -36,26 +36,24 @@ const test2 = () => {
         newWindow.document.write('<h1>👒👒👒</h1>');
         newWindow.opener.alert('🛩🛩🛩');
     }, 3000); // 3초 지나면 창 꺼짐
-};
+}
 
 /**
  * Time API - setTimeout
  * - milli초 후에 callback함수 실행
  * - js시간은 쓰레드스케쥴링에 의해 늘어질 수 있다
  */
-const test3 = () =>{
+const test3 = () => {
     const timeoutId = setTimout(() => {
     // setTimeout(() => {
-        alert('📍📍📍')
+        alert('📍📍📍');
     }, 1000);
     console.log(timeoutId);
 };
-
 // IIFE
 (() => {
     setTimeout(() => {
         console.log('회원가입 후 더 많은 혜택을 누리세요');
-        ('회원가입 후 더 많은 혜택을 누리세요');
     }, 5000);
 })();
 
@@ -76,7 +74,7 @@ const test4 = () => {
         console.log(i++);
     }, 1000);
     console.log(intervalId, '번 인터벌이 등록되었습니다');
-};
+}
 
 /**
  * 사용자 타이머
@@ -85,9 +83,7 @@ let timeoutId; // 전역변수
 const test5 = () => {
     const message = document.querySelector("#message");
     const sec = document.querySelector("#sec");
-
     console.log(message.value, sec.value); // 사용자입력값보기
-    const messageVal = message.value; // 초기화시 간섭안받으려고 변수씀
 
     // 유효성검사
     if(!message.value || !sec.value) {
@@ -96,6 +92,7 @@ const test5 = () => {
     }
 
     // 
+    const messageVal = message.value; // 초기화시 간섭안받으려고 변수씀
     timeoutId = setTimeout(() => {
         alert(messageVal);
         timeoutId = undefined; // id제거
@@ -130,6 +127,7 @@ const clock = () => {
 
 const displqayClock = () => document.querySelector("#clock-display").innerHTML = clock();
 displqayClock();
-setInterval(() => {
+setInterval(displqayClock, 1000); 
+// setInterval(() => {
     // document.querySelector("#clock-display").innerHTML = clock();
-}, 1000);
+// }, 1000);
