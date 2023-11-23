@@ -21,6 +21,7 @@ const test1 = () => {
     Person.y();
 };
 
+// this용법5. class안의 this는 현재객체를 가리킨다.
 class Person {
     static x = 100;
     static y() {
