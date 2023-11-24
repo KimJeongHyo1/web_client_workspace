@@ -2,7 +2,7 @@
  * inline 이벤트속성의 작성내용이 미리 만들어진 핸들러함수 안에서 실행된다
  * - 핸들러하나만 등록가능
  */
-const test1 = (e) => {
+const test1 = (e) => { // onclick="test1(event);
     console.log('👀');
     console.log(e); // 클릭관련이벤트 들어있음
     // console.log(document.querySelector('#btn1').onclick);
@@ -42,9 +42,9 @@ document.querySelector("#btn4").onclick = function(e) { // = function(e) => { �
     console.log(e.target);
     console.log(e.target.innerHTML);
 
-// this용법6. 이벤트핸들러 안의 this는 이벤트발생객체를 가리킨다
+    // this용법6. 이벤트핸들러(일반함수) 안의 this는 이벤트발생객체를 가리킨다
     console.log(this); // 이벤트발생객체
-    console.log(this === e.target);
+    console.log(this === e.target); // true
 };
 
 
@@ -72,7 +72,7 @@ document.querySelector("#nickname").onblur = (e) => {
  * - keyup -> 이것만 사용하면 됨
  */
 document.querySelector("#memo").onkeyup = (e) => {
-    // console.log(e); // key(a) | keyCode(65) 아스키코드 | codeA(KeyA)
+    // console.log(e); // key(a) | keyCode(65(아스키코드)) | codeA(KeyA)
     console.log(e.target.value);
 
     // 엔터 확인
@@ -82,13 +82,13 @@ document.querySelector("#memo").onkeyup = (e) => {
 
 
 /**
- * 제출버튼클릭 -> submit이벤트발생 -> submit이벤트핸들러(유효성검사) 호출 -> 제출
+ * ⭐제출버튼클릭 -> submit이벤트발생 -> submit이벤트핸들러(유효성검사) 호출 -> 제출
  * 
  * - 제출방지 event.preventDefault();
  */
 // const frm = e.target;
 const frm = document.signupFrm;
-console.log(frm);
+// console.log(frm);
 const username = frm.username;
 const password = frm.password;
 const confirmPassword = frm['confirm-password']; // 전역으로 올림

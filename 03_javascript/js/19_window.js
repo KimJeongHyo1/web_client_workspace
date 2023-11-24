@@ -25,7 +25,7 @@ const test2 = () => {
     // 팝업창처럼 띄우기(크키지정 안하면 팝업처럼 뜸) / 같은 이름의 window를 또 띄우지않음
     const newWindow = open('01_hellojs.html', 'hellojs', 'width=500, height=300, top=400, left=400');
     
-    // 현재 탭을대체
+    // 현재 탭을 대체 -> _self
     // const newWindow = open('01_hellojs.html', '_self');
     console.log(newWindow);
     console.log(newWindow.opener); // 현재창을 가르킴
@@ -35,11 +35,11 @@ const test2 = () => {
         // newWindow.alert('🛩🛩🛩');
         newWindow.document.write('<h1>👒👒👒</h1>');
         newWindow.opener.alert('🛩🛩🛩');
-    }, 3000); // 3초 지나면 창 꺼짐
+    }, 3000); // 3초 지나면 창 꺼지면서 글이 바뀜
 }
 
 /**
- * Time API - setTimeout
+ * Time API - setTimeout( ?초 후 실행해줘)
  * - milli초 후에 callback함수 실행
  * - js시간은 쓰레드스케쥴링에 의해 늘어질 수 있다
  */
@@ -126,7 +126,7 @@ const clock = () => {
 };
 
 const displqayClock = () => document.querySelector("#clock-display").innerHTML = clock();
-displqayClock();
+displqayClock(); // 처음부터(페이지들어가면) 시작
 setInterval(displqayClock, 1000); 
 // setInterval(() => {
     // document.querySelector("#clock-display").innerHTML = clock();
