@@ -10,4 +10,10 @@
     background-color: darkcyan;
 }
 
-/* 동1(div), 은1(.foo),은1[title]
+/* 동1(div), 은1(.foo),은1[title] */
+div.foo[title=box] {
+    background-color: pink !important; 
+  }
+  .foo {
+    background-color: aquamarine;
+  }
