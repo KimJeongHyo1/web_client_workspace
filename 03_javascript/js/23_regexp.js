@@ -112,9 +112,9 @@ document.querySelector("#btn5").addEventListener('click', (e) => {
     const src = `ABCDEFGhijklmn 가나다라마바사ㅋㅋㅎㅎㅓㅓㅏㅏ 1234567890 !@#$%^&*() \t\n`;
     const area = e.target.nextElementSibling;
     
-    area.innerHTML = `<p>${src.replace(/[aj]/gi, '<mark>$&</mark>')}</p>`;
-    area.innerHTML += `<p>${src.replace(/[^aj]/gi, '<mark>$&</mark>')}</p>`; // a,j빼고 전부
-    area.innerHTML += `<p>${src.replace(/^[aj]/gi, '<mark>$&</mark>')}</p>`; // a,j빼고 전부
+    area.innerHTML = `<p>${src.replace(/[aj]/gi, '<mark>$&</mark>')}</p>`; // aj찾아줘
+    area.innerHTML += `<p>${src.replace(/[^aj]/gi, '<mark>$&</mark>')}</p>`; // aj빼고찾아줘
+    area.innerHTML += `<p>${src.replace(/^[aj]/gi, '<mark>$&</mark>')}</p>`; // 
     
     area.innerHTML += `<p>${src.replace(/[123456789]/gi, '<mark>$&</mark>')}</p>`; 
     area.innerHTML += `<p>${src.replace(/[0-9]/gi, '<mark>$&</mark>')}</p>`; 
@@ -373,7 +373,8 @@ document.querySelector("#password").addEventListener('blur', (e) => {
 document.querySelector("#btn-ssn").addEventListener('click', (e) => {
     const ssn = document.querySelector("#ssn");
     // const re = /^[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
-    const re = /^\d\d\d\d\d\d-\d\d\d\d\d\d\d$/;
+    // const re = /^\d\d\d\d\d\d-\d\d\d\d\d\d\d$/;
+    const re = /^\d{2}(0[1-9] | 1[0-2])(0[1-9] | [1-2][0-9] | 3[01])$/;
 
 if(re.test(ssn.value)){
     alert('유효한 주민번호입니다.');

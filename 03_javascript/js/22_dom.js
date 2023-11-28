@@ -80,13 +80,13 @@ document.querySelector("#btn5").addEventListener('click', () => {
  * DOM Traversing
  * - 특정요소에서 DOM Tree를 따라 다음요소를 찾아가는 기술
  * 
- * Node
+ * Node -> 쓰지말것
  *   - 자식 firstChild | lastChild | childNodes
  *   - 부모 parentNode
  *   - 형제 newtSibling | previousSibling
  * Element -> 이것만 쓰면됨
  *   - 자식 firstElementChild | lastElementChild | children
- *   - 부모 parentElement
+ *   - 부모 parentElement -> parentNode랑 같음
  *   - 형제 nextElementSibling | previousElementSibling
  */
 document.querySelector('#btn6').addEventListener('click', () => {
