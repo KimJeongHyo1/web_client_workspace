@@ -4,7 +4,7 @@ $("#btn1").on('click', () => {
     console.log($); // jquery함수
     console.log(jQuery); // $ 변수명 충돌을 방지하기 위해 jQuery변수도 제공함
 
-    // $("선택자") -> jquery객체(js태그객체를 감싼 객체)
+    // $("선택자") -> jquery객체(js태그객체를 감싼 객체) / 한줄로작성("th,td")
     // jquery객체를 담은 변수는 $ 시작하는 관례가 있다.
     const $p1 = $("#p1");
     console.log($p1);
@@ -45,7 +45,7 @@ $("#btn2").on('click', () => {
     console.log($("p").get()); // [p#p1, p#p2, p#p3, p#p4, p#p5] 
 
     // js객체를 전달해서 jquery객체 생성
-    console.log($(document.querySelector("#p1")));
+    console.log($(document.querySelector("#p1"))); // $("#p1")이랑 같음
     console.log($(p1));
     console.log($([p1, p2, p3]));
 });
