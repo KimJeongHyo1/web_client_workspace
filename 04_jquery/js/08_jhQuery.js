@@ -13,7 +13,7 @@ $("li")
     .css('background-color', 'springgreen')
     .css('text-decoration', 'underline');
 
-$("#titlt").click(() => { 
+$("#title").click(() => { 
     alert('반갑습니다🖐🖐🖐');
 });
 

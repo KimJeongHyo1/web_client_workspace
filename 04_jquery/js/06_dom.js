@@ -37,8 +37,8 @@ $(btn5).click(() => $target.before($(`<span>${String.fromCharCode(char++)}</span
  * 새요소기준 삽입메소드
  * - append 마지막 자식요소로 추가
  * - prepend 첫번째 자식요소로 추가
- * - after 다음 형제요소로 추가
- * - before 이전 형제요소로 추가
+ * - insertAfter 다음 형제요소로 추가
+ * - insertBefore 이전 형제요소로 추가
  */
 // $(btn6).click(() => $(`<span>${String.fromCharCode(char++)}</span>`).appendTo($target));
 $(btn6).click(() => 
