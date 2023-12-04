@@ -115,7 +115,7 @@ document.querySelector("#btn5").onclick = () => {
 
 
 const frm = document.guestbookFrm;
-const nsme = frm.name;
+const name = frm.name;
 const content = frm.content;
 /**
  * submit 핸들러 (유효성검사)
